@@ -21,6 +21,9 @@
     justify-content: flex-end;
     width: 50%;
   }
+  .nav-bar .nav-buttons p {
+    margin-left: 25px;
+  }
 </style>
 
 <div class="nav-bar">
