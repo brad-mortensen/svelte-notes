@@ -5,11 +5,13 @@
 <style>
   .nav-bar {
     width: 100%;
+    margin: 0;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
+    background-color: white; 
 
   }
   .nav-bar h1 {

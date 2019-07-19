@@ -3,7 +3,8 @@
 </script>
 
 <style>
-
+.note{
+}
 </style>
 
 <div class="note">
