@@ -1,5 +1,5 @@
 <script>
-  let note;
+  export let note;
 </script>
 
 <style>

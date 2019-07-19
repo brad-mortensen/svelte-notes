@@ -24,7 +24,7 @@
 </style>
 
 <div>
-  {#each notes as { note }, i}
+  {#each notes as note, i}
     <Note {note} />
   {/each}
 </div>
