@@ -20,11 +20,19 @@
 </script>
 
 <style>
-
+  .notes-container {
+    padding-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding:50px 20px;
+  }
 </style>
 
-<div>
+<div class="notes-container">
   {#each notes as note, i}
     <Note {note} />
+  {:else}
+    <p>No notes yet.</p>
   {/each}
 </div>

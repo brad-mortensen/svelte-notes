@@ -1,5 +1,15 @@
 <script>
+  import { createEventDispatcher } from "svelte";
 
+  const dispatch = createEventDispatcher();
+
+  function toggleTrue() {
+    dispatch("toggleTrue");
+  }
+
+  function toggleFalse() {
+    dispatch("toggleFalse");
+  }
 </script>
 
 <style>
@@ -10,9 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
-    background-color: white; 
-
+    background-color: white;
   }
   .nav-bar h1 {
     color: forestgreen;
@@ -31,7 +39,7 @@
 <div class="nav-bar">
   <h1>Svelte Notes</h1>
   <div class="nav-buttons">
-    <p>View Notes</p>
-    <p>New Note</p>
+    <p on:click={toggleFalse}>View Notes </p>
+    <p on:click={toggleTrue}>New Note</p>
   </div>
 </div>

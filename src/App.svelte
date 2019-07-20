@@ -1,14 +1,20 @@
 <script>
   import Nav from "./components/Nav.svelte";
   import NotesList from "./components/NotesList.svelte";
-  export let name;
+  import AddNote from "./components/AddNote.svelte";
+  let adding = false;
+  const truifyAdding = ()=> adding = true;
+  const falsifyAdding = ()=> adding = false;
 </script>
 
 <style>
   :global(html) {
     scroll-behavior: smooth;
+    box-sizing: border-box;
   }
-
+  :global(*, *:before, *:after) {
+    box-sizing: inherit;
+  }
   :global(body) {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -17,8 +23,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 62.5%;
-    box-sizing: border-box;
-		background-color: lightsalmon;
+    background-color: lightsalmon;
+    padding: 0;
   }
 
   :global(code) {
@@ -27,18 +33,22 @@
   }
   .app {
     max-width: 100%;
-    box-sizing: border-box;
-    
   }
   .app .container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
-
 <div class="app">
-  <Nav />
+  <Nav on:toggleTrue={truifyAdding} on:toggleFalse={falsifyAdding}/>
   <div class="container">
-    <NotesList />
+    {#if adding}
+      <NotesList  />
+    {:else if !adding}
+      <AddNote {adding}/>
+    {/if}
   </div>
 </div>

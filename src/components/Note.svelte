@@ -3,11 +3,23 @@
 </script>
 
 <style>
-.note{
-}
+  .note {
+    background: white;
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 3px solid lightsalmon;
+  }
+  .note h2 {
+    font-size: 2rem;
+  }
+  .note p {
+    font-size: 1.2rem;
+  }
 </style>
 
 <div class="note">
-  <h4>{note.title}</h4>
+  <h2>{note.title}</h2>
   <p>{note.body}</p>
 </div>
