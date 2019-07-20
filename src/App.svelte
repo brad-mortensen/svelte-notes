@@ -49,9 +49,9 @@
 <div class="app">
   <Nav on:toggleTrue={truifyAdding} on:toggleFalse={falsifyAdding}/>
   <div class="container">
-    {#if adding}
+    {#if !adding}
       <NotesList  />
-    {:else if !adding}
+    {:else if adding}
       <AddNote {adding}/>
     {/if}
   </div>

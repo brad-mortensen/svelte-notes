@@ -21,5 +21,5 @@
 
 <div class="note">
   <h2>{note.title}</h2>
-  <p>{note.body}</p>
+  <p>{note.textBody}</p>
 </div>
