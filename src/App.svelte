@@ -25,6 +25,7 @@
     font-size: 62.5%;
     background-color: lightsalmon;
     padding: 0;
+    height: 100vh;
   }
 
   :global(code) {
@@ -33,6 +34,7 @@
   }
   .app {
     max-width: 100%;
+    height: 80%;
   }
   .app .container {
     max-width: 1200px;
@@ -40,6 +42,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
   }
 </style>
 <div class="app">

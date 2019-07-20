@@ -9,11 +9,27 @@
     display: flex;
     flex-flow: column;  
   }
+  .add-note-container h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    
+  }
+  .add-note-container .new-note-form {
+    display: flex;
+    flex-flow: column;
+  }
+  .add-note-container .new-note-form .title {
+    width: 60%;
+  }
+  .add-note-container .new-note-form .body {
+    width: 60%;
+  }
 </style>
 
 <div class="add-note-container">
   <h2>Add a note</h2>
-  <form>
+  <form class="new-note-form">
     <input class="title" type="text"/>
     <textarea class="body" type="text"/>
   </form>
