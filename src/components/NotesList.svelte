@@ -1,18 +1,21 @@
 <script>
   import { onMount } from "svelte";
   import Note from "./Note.svelte";
+  let currentPage = 1;
+  let notesPerPage = 6;
   let notes = [];
   const fetchNotes = async () => {
     const response = await fetch(
       "https://lambda-notes-build.herokuapp.com/api/notes"
     );
     const data = await response.json();
-    return data;    
+    return data;
   };
 
-  onMount(() => {
-    fetchNotes().then(data=>notes = [...data]);
-    let newNotes = notes
+  onMount(async () => {
+    await fetchNotes().then(data => (notes = [...data]));
+    let newNotes = notes.slice((currentPage * notesPerPage)-notesPerPage, currentPage * notesPerPage );
+    notes = newNotes;
   });
 </script>
 
