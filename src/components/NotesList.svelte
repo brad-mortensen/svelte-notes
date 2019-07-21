@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Note from "./Note.svelte";
+  let pageRange = [];
   let currentPage = 1;
   let notesPerPage = 6;
   let notes = [];
@@ -14,7 +15,13 @@
 
   onMount(async () => {
     await fetchNotes().then(data => (notes = [...data]));
-    let newNotes = notes.slice((currentPage * notesPerPage)-notesPerPage, currentPage * notesPerPage );
+    let newNotes = notes.slice(
+      currentPage * notesPerPage - notesPerPage,
+      currentPage * notesPerPage
+    );
+    for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
+      pageRange.push(i);
+    }
     notes = newNotes;
   });
 </script>
@@ -27,13 +34,15 @@
     justify-content: space-around;
     padding: 50px 20px;
   }
-  .notes-container p {
-    font-size: 3rem;
+  .notes-container .page-num {
+    font-size: 1rem;
+    width: 100%;
+    text-align: right;
   }
 </style>
 
 <div class="notes-container">
-  {#each notes as note, i}
+  {#each notes as note}
     <Note {note} />
   {:else}
     <p>*No notes yet*</p>
