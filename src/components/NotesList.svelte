@@ -12,6 +12,7 @@
 
   onMount(() => {
     fetchNotes().then(data=>notes = [...data]);
+    let newNotes = notes
   });
 </script>
 
