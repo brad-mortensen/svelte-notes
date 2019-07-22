@@ -29,27 +29,37 @@
 
 <style>
   .notes-container {
-    padding-top: 50px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    padding: 50px 20px;
+    margin-top: 40px;
+    padding: 0 20px;
   }
   .notes-container .page-numbers {
     font-size: 1rem;
     width: 100%;
     text-align: right;
+    margin: 20px;
+    box-sizing: border-box;
   }
   .notes-container .page-numbers span {
-    margin-left: 10px;
+    margin-left: 25px;
     cursor: pointer;
+  }
+  .notes-container .page-numbers .current-page {
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 </style>
 
 <div class="notes-container">
   <div class="page-numbers">
     {#each pageRange as num (num)}
-      <span>{num}</span>
+      {#if num === currentPage}
+        <span class="current-page">{num}</span>
+      {:else}
+        <span>{num}</span>
+      {/if}
     {/each}
   </div>
 
