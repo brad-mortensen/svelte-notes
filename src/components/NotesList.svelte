@@ -12,13 +12,16 @@
     const data = await response.json();
     return data;
   };
-
+  const setPageNum = e => {
+    currentPage = e.target.innerText;
+    console.log({ currentPage });
+  };
   onMount(async () => {
     await fetchNotes().then(data => (notes = [...data]));
     for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
       pageRange.push(i);
     }
-    console.log(`pageRange: ${pageRange}`);
+    console.log({ pageRange });
     let newNotes = notes.slice(
       currentPage * notesPerPage - notesPerPage,
       currentPage * notesPerPage
@@ -54,16 +57,17 @@
 
 <div class="notes-container">
   <div class="page-numbers">
-    {#each pageRange as num (num)}
+    <p>Sort</p>
+    {#each pageRange as num (currentPage)}
       {#if num === currentPage}
         <span class="current-page">{num}</span>
       {:else}
-        <span>{num}</span>
+        <span on:click={setPageNum}>{num}</span>
       {/if}
     {/each}
   </div>
 
-  {#each notes as note}
+  {#each notes as note (notes)}
     <Note {note} />
   {:else}
     <p>*No notes yet*</p>
