@@ -35,14 +35,24 @@
     justify-content: space-around;
     padding: 50px 20px;
   }
-  /* .notes-container .page-num {
+  .notes-container .page-numbers {
     font-size: 1rem;
     width: 100%;
     text-align: right;
-  } */
+  }
+  .notes-container .page-numbers span {
+    margin-left: 10px;
+    cursor: pointer;
+  }
 </style>
 
 <div class="notes-container">
+  <div class="page-numbers">
+    {#each pageRange as num (num)}
+      <span>{num}</span>
+    {/each}
+  </div>
+
   {#each notes as note}
     <Note {note} />
   {:else}
