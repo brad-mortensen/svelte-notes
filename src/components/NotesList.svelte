@@ -15,13 +15,14 @@
 
   onMount(async () => {
     await fetchNotes().then(data => (notes = [...data]));
+    for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
+      pageRange.push(i);
+    }
+    console.log(`pageRange: ${pageRange}`);
     let newNotes = notes.slice(
       currentPage * notesPerPage - notesPerPage,
       currentPage * notesPerPage
     );
-    for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
-      pageRange.push(i);
-    }
     notes = newNotes;
   });
 </script>
@@ -34,11 +35,11 @@
     justify-content: space-around;
     padding: 50px 20px;
   }
-  .notes-container .page-num {
+  /* .notes-container .page-num {
     font-size: 1rem;
     width: 100%;
     text-align: right;
-  }
+  } */
 </style>
 
 <div class="notes-container">
