@@ -3,6 +3,20 @@
   let title = "";
   let textBody = "";
   console.log(`textBody: ${textBody}, title: ${title}`);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const data = { title, textBody };
+    const options = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    fetch("https://lambda-notes-build.herokuapp.com/api/notes", options)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
 </script>
 
 <style>
@@ -34,6 +48,6 @@
   <form class="new-note-form">
     <input class="title" type="text" bind:value={title} />
     <textarea class="textBody" type="text" bind:value={textBody} />
-    <button type="submit"></button>
+    <button type="submit" on:click={handleSubmit} />
   </form>
 </div>
