@@ -4,6 +4,7 @@
   let pageRange = [];
   let currentPage = 1;
   let notesPerPage = 6;
+  let newNotes;
   let notes = [];
   const fetchNotes = async () => {
     const response = await fetch(
@@ -22,7 +23,7 @@
       pageRange.push(i);
     }
     console.log({ pageRange });
-    let newNotes = notes.slice(
+    newNotes = notes.slice(
       currentPage * notesPerPage - notesPerPage,
       currentPage * notesPerPage
     );
@@ -67,7 +68,7 @@
     {/each}
   </div>
 
-  {#each notes as note (notes)}
+  {#each notes as note (newNotes)}
     <Note {note} />
   {:else}
     <p>*No notes yet*</p>
