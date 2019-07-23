@@ -1,5 +1,8 @@
 <script>
   export let note;
+  const handleDelete = () => {
+    
+  };
 </script>
 
 <style>
@@ -22,4 +25,5 @@
 <div class="note">
   <h2>{note.title}</h2>
   <p>{note.textBody}</p>
+  <span class="delete" on:click={handleDelete}>X</span>
 </div>
