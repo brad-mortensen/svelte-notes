@@ -68,7 +68,7 @@
     {/each}
   </div>
 
-  {#each notes as note (newNotes)}
+  {#each notes as note (notes)}
     <Note {note} />
   {:else}
     <p>*No notes yet*</p>

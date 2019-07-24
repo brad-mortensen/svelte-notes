@@ -17,6 +17,7 @@
     padding: 10px;
     margin-bottom: 20px;
     border: 3px solid lightsalmon;
+    overflow: scroll;
   }
   .note h2 {
     font-size: 2rem;
@@ -27,7 +28,7 @@
 </style>
 
 <div class="note">
+  <span class="delete" id={note.id} on:click={handleDelete}>X</span>
   <h2>{note.title}</h2>
   <p>{note.textBody}</p>
-  <span class="delete" id={note.id} on:click={handleDelete}>X</span>
 </div>
