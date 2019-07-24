@@ -1,7 +1,12 @@
 <script>
   export let note;
-  const handleDelete = () => {
-    
+  const handleDelete = async e => {
+    console.log(e.target.id);
+    const response = await fetch(
+      `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
+      { method: "DELETE" }
+    );
+    return response.status;
   };
 </script>
 
@@ -25,5 +30,5 @@
 <div class="note">
   <h2>{note.title}</h2>
   <p>{note.textBody}</p>
-  <span class="delete" on:click={handleDelete}>X</span>
+  <span class="delete" id={note.id} on:click={handleDelete}>X</span>
 </div>
