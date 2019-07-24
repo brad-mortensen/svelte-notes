@@ -1,12 +1,11 @@
 <script>
   export let note;
   const handleDelete = async e => {
-    console.log(e.target.id);
     const response = await fetch(
       `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
       { method: "DELETE" }
     );
-    return response.status;
+    console.log(response.status);
   };
 </script>
 
