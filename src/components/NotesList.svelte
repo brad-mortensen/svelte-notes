@@ -6,6 +6,19 @@
   let notesPerPage = 6;
   let newNotes;
   let notes = [];
+  let singleNoteShowing = false;
+  let singleNoteId = null;
+  const handleEdit = async e => {
+    const options = {
+      method: "PUT",
+      body: JSON.stringify(data)
+    };
+    const response = await fetch(
+      `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
+      { method: "PUT" }
+    );
+    console.log(response.status);
+  };
   const fetchNotes = async () => {
     const response = await fetch(
       "https://lambda-notes-build.herokuapp.com/api/notes"
@@ -69,7 +82,7 @@
   </div>
 
   {#each notes as note (notes)}
-    <Note {note} />
+    <Note {note} on:click={handleEdit} />
   {:else}
     <p>*No notes yet*</p>
   {/each}

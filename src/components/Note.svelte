@@ -7,17 +7,7 @@
     );
     console.log(response.status);
   };
-  const handleEdit = async e => {
-    const options = {
-      method: "PUT",
-      body: JSON.stringify(data)
-    }
-    const response = await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
-      { method: "PUT" }
-    );
-    console.log(response.status);
-  };
+
 </script>
 
 <style>
