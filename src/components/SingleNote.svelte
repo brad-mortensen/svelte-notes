@@ -1,5 +1,11 @@
 <script>
-  const fetchNote = () => {};
+  let currentNote = [];
+  const fetchNote = async id => {
+    const response = await fetch(
+      `https://lambda-notes-build.herokuapp.com/api/notes/${id}`
+    );
+    const data = await response.json();
+  };
 </script>
 
 <style>
