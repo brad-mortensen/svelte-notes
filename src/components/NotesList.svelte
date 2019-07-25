@@ -73,7 +73,7 @@
   }
 </style>
 
-{#if !singleNoteShowing}
+{#if singleNoteShowing}
   <div class="notes-container">
     <div class="page-numbers">
       <p>Sort</p>

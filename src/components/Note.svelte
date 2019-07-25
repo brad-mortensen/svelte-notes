@@ -29,7 +29,6 @@
 </style>
 
 <div class="note">
-  <span class="edit" id={note.id}>edit</span><span class="delete" id={note.id} on:click={handleDelete}>X</span>
   <h2>{note.title}</h2>
   <p>{note.textBody}</p>
 </div>
