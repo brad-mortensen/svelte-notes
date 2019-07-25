@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Note from "./Note.svelte";
+  import SingleNote from "./SingleNote.svelte";
   let pageRange = [];
   let currentPage = 1;
   let notesPerPage = 6;
@@ -31,8 +32,8 @@
     console.log({ currentPage });
   };
   const singleNote = () => {
-    
-  }
+    singleNoteShowing = true;
+  };
   onMount(async () => {
     await fetchNotes().then(data => (notes = [...data]));
     for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
@@ -72,21 +73,25 @@
   }
 </style>
 
-<div class="notes-container">
-  <div class="page-numbers">
-    <p>Sort</p>
-    {#each pageRange as num (currentPage)}
-      {#if num === currentPage}
-        <span class="current-page">{num}</span>
-      {:else}
-        <span on:click={setPageNum}>{num}</span>
-      {/if}
+{#if !singleNoteShowing}
+  <div class="notes-container">
+    <div class="page-numbers">
+      <p>Sort</p>
+      {#each pageRange as num (currentPage)}
+        {#if num === currentPage}
+          <span class="current-page">{num}</span>
+        {:else}
+          <span on:click={setPageNum}>{num}</span>
+        {/if}
+      {/each}
+    </div>
+
+    {#each notes as note (notes)}
+      <Note {note} on:click={singleNote} />
+    {:else}
+      <p>*No notes yet*</p>
     {/each}
   </div>
-
-  {#each notes as note (notes)}
-    <Note {note} on:click={singleNote} />
-  {:else}
-    <p>*No notes yet*</p>
-  {/each}
-</div>
+{:else}
+  <SingleNote />
+{/if}
