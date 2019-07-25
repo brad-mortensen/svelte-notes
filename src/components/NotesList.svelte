@@ -30,6 +30,9 @@
     currentPage = e.target.innerText;
     console.log({ currentPage });
   };
+  const singleNote = () => {
+    
+  }
   onMount(async () => {
     await fetchNotes().then(data => (notes = [...data]));
     for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
@@ -82,7 +85,7 @@
   </div>
 
   {#each notes as note (notes)}
-    <Note {note} on:click={handleEdit} />
+    <Note {note} on:click={singleNote} />
   {:else}
     <p>*No notes yet*</p>
   {/each}
