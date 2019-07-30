@@ -1,13 +1,13 @@
 <script>
   export let note;
-  const handleDelete = async e => {
-    await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
-      { method: "DELETE" }
-    )
-      .then(res => console.log(res.status))
-      .catch(err => console.log(`error deleting note: ${err}`));
-  };
+  // const handleDelete = async e => {
+  //   await fetch(
+  //     `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
+  //     { method: "DELETE" }
+  //   )
+  //     .then(res => console.log(res.status))
+  //     .catch(err => console.log(`error deleting note: ${err}`));
+  // };
 </script>
 
 <style>
