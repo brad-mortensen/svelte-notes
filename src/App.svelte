@@ -1,7 +1,7 @@
 <script>
   import Nav from "./components/Nav.svelte";
-  import NotesList from "./components/NotesList.svelte";
-  import AddNote from "./components/AddNote.svelte";
+  import NotesList from "./routes/NotesList.svelte";
+  import AddNote from "./routes/AddNote.svelte";
   let adding = false;
   const truifyAdding = ()=> adding = true;
   const falsifyAdding = ()=> adding = false;
