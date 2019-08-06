@@ -1,4 +1,5 @@
 <script>
+  console.log(window.location.pathname);
   let currentNote = [];
   const fetchNote = async id => {
     const response = await fetch(

@@ -27,7 +27,6 @@
     font-size: 1rem;
     cursor: pointer;
   }
-  a {color: black;}
 </style>
 
 <div class="nav-bar">

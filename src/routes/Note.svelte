@@ -30,7 +30,9 @@
   }
 </style>
 
-<div class="note">
-  <h2>{note.title}</h2>
-  <p>{note.textBody}</p>
-</div>
+<Link to="note/{note.id}">
+  <div class="note">
+    <h2>{note.title}</h2>
+    <p>{note.textBody}</p>
+  </div>
+</Link>

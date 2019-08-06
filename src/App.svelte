@@ -3,6 +3,7 @@
   import Nav from "./components/Nav.svelte";
   import NotesList from "./routes/NotesList.svelte";
   import AddNote from "./routes/AddNote.svelte";
+  import SingleNote from "./routes/SingleNote.svelte";
 </script>
 
 <style>
@@ -49,27 +50,15 @@
   <div class="app">
     <Nav />
     <div class="container">
-      <Route path="/"><NotesList /></Route>
-      <Route path="add-note"><AddNote /></Route>
-      <Route path="note/:id"><AddNote /></Route>
+      <Route path="/">
+        <NotesList />
+      </Route>
+      <Route path="add-note">
+        <AddNote />
+      </Route>
+      <Route path="note/:id">
+        <SingleNote />
+      </Route>
     </div>
   </div>
 </Router>
-<!-- <script>
-  import { Router, Link, Route } from "svelte-routing";
-  import { Home, About, Blog, BlogPost } from "./routes";
-
-  export let url = "";
-</script><Router url="{url}">
-  <nav>
-    <Link to="/">Home</Link>
-    <Link to="about">About</Link>
-    <Link to="blog">Blog</Link>
-  </nav>
-  <div>
-    <Route path="blog/:id" component="{BlogPost}" />
-    <Route path="blog" component="{Blog}" />
-    <Route path="about" component="{About}" />
-    <Route path="/"><Home /></Route>
-  </div>
-</Router> -->
