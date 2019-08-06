@@ -1,10 +1,11 @@
 <script>
+  import { Router, Link, Route } from "svelte-routing";
   import Nav from "./components/Nav.svelte";
   import NotesList from "./routes/NotesList.svelte";
   import AddNote from "./routes/AddNote.svelte";
   let adding = false;
-  const truifyAdding = ()=> adding = true;
-  const falsifyAdding = ()=> adding = false;
+  const truifyAdding = () => (adding = true);
+  const falsifyAdding = () => (adding = false);
 </script>
 
 <style>
@@ -46,25 +47,25 @@
     box-sizing: border-box;
   }
 </style>
-<div class="app">
-  <Nav on:toggleTrue={truifyAdding} on:toggleFalse={falsifyAdding}/>
-  <div class="container">
-    {#if !adding}
-      <NotesList  />
-    {:else if adding}
-      <AddNote {adding}/>
-    {/if}
-  </div>
-</div>
 
+<Router>
+  <div class="app">
+    <Nav on:toggleTrue={truifyAdding} on:toggleFalse={falsifyAdding} />
+    <div class="container">
+      {#if !adding}
+        <NotesList />
+      {:else if adding}
+        <AddNote {adding} />
+      {/if}
+    </div>
+  </div>
+</Router>
 <!-- <script>
   import { Router, Link, Route } from "svelte-routing";
   import { Home, About, Blog, BlogPost } from "./routes";
 
   export let url = "";
-</script>
-
-<Router url="{url}">
+</script><Router url="{url}">
   <nav>
     <Link to="/">Home</Link>
     <Link to="about">About</Link>

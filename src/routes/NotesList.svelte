@@ -2,11 +2,11 @@
   import { onMount } from "svelte";
   import Note from "./Note.svelte";
   import SingleNote from "./SingleNote.svelte";
-  let pageRange = [];
-  let currentPage = 1;
+  $: pageRange = [];
+  $: currentPage = 1;
   let notesPerPage = 6;
   let newNotes;
-  let notes = [];
+  $: notes = [];
   let singleNoteId = null;
   const handleEdit = async e => {
     const options = {
