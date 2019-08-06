@@ -4,6 +4,7 @@
   import NotesList from "./routes/NotesList.svelte";
   import AddNote from "./routes/AddNote.svelte";
   import SingleNote from "./routes/SingleNote.svelte";
+  import EditNote from "./routes/EditNote.svelte";
 </script>
 
 <style>
@@ -58,6 +59,9 @@
       </Route>
       <Route path="note/:id">
         <SingleNote />
+      </Route>
+      <Route path="edit/:id">
+        <EditNote />
       </Route>
     </div>
   </div>
