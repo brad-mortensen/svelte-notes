@@ -1,11 +1,8 @@
 <script>
-  import { Router, Link, Route } from "svelte-routing";
+  import { Router, Route } from "svelte-routing";
   import Nav from "./components/Nav.svelte";
   import NotesList from "./routes/NotesList.svelte";
   import AddNote from "./routes/AddNote.svelte";
-  let adding = false;
-  const truifyAdding = () => (adding = true);
-  const falsifyAdding = () => (adding = false);
 </script>
 
 <style>
@@ -50,13 +47,11 @@
 
 <Router>
   <div class="app">
-    <Nav on:toggleTrue={truifyAdding} on:toggleFalse={falsifyAdding} />
+    <Nav />
     <div class="container">
-      {#if !adding}
-        <NotesList />
-      {:else if adding}
-        <AddNote {adding} />
-      {/if}
+      <Route path="/"><NotesList /></Route>
+      <Route path="add-note"><AddNote /></Route>
+      <Route path="note/:id"><AddNote /></Route>
     </div>
   </div>
 </Router>

@@ -1,15 +1,5 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-
-  const dispatch = createEventDispatcher();
-
-  const toggleTrue = () => {
-    dispatch("toggleTrue");
-  };
-
-  const toggleFalse = () => {
-    dispatch("toggleFalse");
-  };
+  import { Link } from "svelte-routing";
 </script>
 
 <style>
@@ -37,12 +27,17 @@
     font-size: 1rem;
     cursor: pointer;
   }
+  a {color: black;}
 </style>
 
 <div class="nav-bar">
   <h1>Svelte Notes</h1>
   <div class="nav-buttons">
-    <p on:click={toggleFalse}>View Notes</p>
-    <p on:click={toggleTrue}>New Note</p>
+    <Link to="/">
+      <p>View Notes</p>
+    </Link>
+    <Link to="/add-note">
+      <p>New Note</p>
+    </Link>
   </div>
 </div>

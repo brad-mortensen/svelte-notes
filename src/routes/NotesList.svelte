@@ -7,7 +7,6 @@
   let notesPerPage = 6;
   let newNotes;
   $: notes = [];
-  let singleNoteId = null;
   const handleEdit = async e => {
     const options = {
       method: "PUT",

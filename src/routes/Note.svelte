@@ -1,4 +1,6 @@
 <script>
+  import { Link } from "svelte-routing";
+
   export let note;
   const handleDelete = async e => {
     await fetch(
