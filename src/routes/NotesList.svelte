@@ -27,7 +27,6 @@
   };
   const setPageNum = e => {
     currentPage = e.target.innerText;
-    console.log({ currentPage });
   };
   onMount(async () => {
     await fetchNotes()
@@ -36,7 +35,6 @@
     for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
       pageRange.push(i);
     }
-    console.log({ pageRange });
     newNotes = notes.slice(
       currentPage * notesPerPage - notesPerPage,
       currentPage * notesPerPage
