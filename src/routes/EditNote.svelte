@@ -31,3 +31,4 @@
   <textarea class="body" placeholder="Note Content" bind:value={currentNote.textBody} />
   <button class="save">Save</button>
 </form>
+
