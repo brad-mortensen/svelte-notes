@@ -110,7 +110,7 @@
     {#if deleting}
       <div class="delete-container">
         <div class="delete-modal">
-          <p>Are you sure you want to delete this note?</p>
+          <p>Are you sure you'd like to delete?</p>
           <button class="delete" on:click={handleDelete}>Delete</button>
           <button on:click={() => (deleting = false)}>Cancel</button>
         </div>
