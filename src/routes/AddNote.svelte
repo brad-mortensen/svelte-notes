@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   let title = "";
   let textBody = "";
   const handleSubmit = e => {
@@ -16,6 +18,7 @@
       .catch(err => console.log(err));
     window.history.back();
   };
+  // onMount(() => console.log(window.history));
 </script>
 
 <style>
@@ -38,12 +41,12 @@
   }
   .add-note-container .new-note-form .title {
     width: 60%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     height: 40px;
   }
   .add-note-container .new-note-form .textBody {
     width: 60%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     height: 200px;
     resize: none;
   }
@@ -55,6 +58,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: forestgreen;
+    color: white;
   }
 </style>
 

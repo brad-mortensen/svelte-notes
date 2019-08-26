@@ -34,10 +34,10 @@
   }
   .app {
     max-width: 100%;
-    height: 80%;
   }
   .app .container {
     max-width: 1200px;
+    height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
