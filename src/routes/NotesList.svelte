@@ -7,21 +7,6 @@
   let notesPerPage = 6;
   let newNotes;
   $: notes = [];
-  const handleEdit = async e => {
-    const data = { title, textBody };
-    const options = {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
-    const response = await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
-      options
-    );
-    console.log(response.status);
-  };
   const fetchNotes = async () => {
     const response = await fetch(
       "https://lambda-notes-build.herokuapp.com/api/notes"
