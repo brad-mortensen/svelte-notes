@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Link } from "svelte-routing";
-  console.log(window.history)
+  console.log(window.history);
   const noteId = `${window.location.pathname.slice(
     6,
     window.location.pathname.length
@@ -23,7 +23,7 @@
     )
       .then(res => console.log(res.status))
       .catch(err => console.log(err));
-      window.history.back();
+    window.history.back();
   };
   onMount(async () => {
     await fetchNote()
@@ -102,7 +102,7 @@
     <h1 class="title">{currentNote.title}</h1>
     <p class="textBody">{currentNote.textBody}</p>
     <div class="buttons">
-      <Link to="edit/{currentNote.id}" >
+      <Link to="edit/{currentNote.id}">
         <p>Edit</p>
       </Link>
       <p on:click={() => (deleting = true)}>Delete</p>
