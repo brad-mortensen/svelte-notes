@@ -45,7 +45,6 @@
 
 <style>
   .notes-container {
-    border: 1px solid red;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;

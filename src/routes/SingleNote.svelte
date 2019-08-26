@@ -34,6 +34,7 @@
 
 <style>
   .single-note {
+    margin-top: 150px;
     background-color: white;
     width: 40%;
     padding: 10px;

@@ -27,6 +27,7 @@
     width: 60%;
     display: flex;
     flex-flow: column;
+    margin-top: 85px;
   }
   .add-note-container h2 {
     width: 100%;
