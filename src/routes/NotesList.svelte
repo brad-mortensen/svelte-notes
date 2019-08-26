@@ -45,17 +45,19 @@
 
 <style>
   .notes-container {
+    border: 1px solid red;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    margin-top: 40px;
     padding: 0 20px;
+    max-width: 928px;
   }
   .notes-container .page-numbers {
     font-size: 1rem;
     width: 100%;
     text-align: right;
     margin: 20px;
+    margin-top: 0;
     box-sizing: border-box;
   }
   .notes-container .page-numbers span {
