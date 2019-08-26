@@ -1,8 +1,6 @@
 <script>
-  export let adding;
   let title = "";
   let textBody = "";
-  console.log(`textBody: ${textBody}, title: ${title}`);
   const handleSubmit = e => {
     e.preventDefault();
     const data = { title, textBody };
