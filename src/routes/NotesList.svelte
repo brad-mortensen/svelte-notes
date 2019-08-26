@@ -8,13 +8,17 @@
   let newNotes;
   $: notes = [];
   const handleEdit = async e => {
+    const data = { title, textBody };
     const options = {
       method: "PUT",
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
     };
     const response = await fetch(
       `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
-      { method: "PUT" }
+      options
     );
     console.log(response.status);
   };
@@ -49,7 +53,7 @@
     flex-flow: row wrap;
     justify-content: space-around;
     padding: 0 20px;
-    max-width: 928px;
+    max-width: 1200px;
   }
   .notes-container .page-numbers {
     font-size: 1rem;
