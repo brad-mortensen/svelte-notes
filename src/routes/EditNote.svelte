@@ -69,8 +69,8 @@
     resize: none;
   }
   .edit-container .edit-form button {
-    width: 25%;
-    height: 40px;
+    width: 28%;
+    height: 44px;
     background-color: white;
     font-size: 1.4rem;
     display: flex;
