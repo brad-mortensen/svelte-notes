@@ -10,7 +10,7 @@
 
   const handleEdit = async e => {
     e.preventDefault();
-    const data = { title, textBody };
+    const data = { title: currentNote.title, textBody: currentNote.textBody };
     const options = {
       method: "PUT",
       body: JSON.stringify(data),
@@ -33,7 +33,7 @@
   };
   onMount(async () => {
     await fetchNote()
-      .then(data => currentNote = data)
+      .then(data => (currentNote = data))
       .catch(err => console.log(`Error getting single note: ${err}`));
   });
 </script>
@@ -84,7 +84,10 @@
 <div class="edit-container">
   <h2>Edit Note:</h2>
   <form class="edit-form">
-    <input class="title" placeholder="Note Title" bind:value={currentNote.title} />
+    <input
+      class="title"
+      placeholder="Note Title"
+      bind:value={currentNote.title} />
     <textarea
       class="textBody"
       placeholder="Note Content"
