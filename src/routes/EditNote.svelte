@@ -6,7 +6,6 @@
     window.location.pathname.length
   )}`;
   let currentNote = [];
-  console.log(currentNote, "current");
 
   const handleEdit = async e => {
     e.preventDefault();
@@ -18,11 +17,13 @@
         "Content-Type": "application/json"
       }
     };
-    const response = await fetch(
+    await fetch(
       `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
       options
-    );
-    console.log(response.status);
+    )
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    window.history.back();
   };
   const fetchNote = async id => {
     const response = await fetch(

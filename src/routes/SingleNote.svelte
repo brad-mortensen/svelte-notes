@@ -1,19 +1,16 @@
 <script>
   import { onMount } from "svelte";
   import { Link } from "svelte-routing";
-  console.log(window.history);
   const noteId = `${window.location.pathname.slice(
     6,
     window.location.pathname.length
   )}`;
-  console.log(`noteId: ${noteId}`);
   let currentNote = [];
   const fetchNote = async id => {
     const response = await fetch(
       `https://lambda-notes-build.herokuapp.com/api/notes/${noteId}`
     );
-    const data = await response.json();
-    return data;
+    return await response.json();
   };
   let deleting = false;
   const handleDelete = async () => {
