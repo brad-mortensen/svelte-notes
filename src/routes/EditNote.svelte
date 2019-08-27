@@ -28,8 +28,7 @@
     const response = await fetch(
       `https://lambda-notes-build.herokuapp.com/api/notes/${noteId}`
     );
-    const data = await response.json();
-    return data;
+    return await response.json();
   };
   onMount(async () => {
     await fetchNote()
