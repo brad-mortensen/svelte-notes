@@ -15,7 +15,7 @@
   .nav-bar h1 {
     color: forestgreen;
     width: 50%;
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
   .nav-bar .nav-buttons {
     display: flex;
