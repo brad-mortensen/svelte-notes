@@ -40,16 +40,16 @@
 
 <style>
   .edit-container {
-    background: white;
+    background: linen;
     width: 60%;
     display: flex;
     flex-flow: column;
-    margin-top: 85px;
+    margin-top: 90px;
   }
   .edit-container h2 {
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .edit-container .edit-form {
     display: flex;
