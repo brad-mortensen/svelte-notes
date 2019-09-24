@@ -15,10 +15,9 @@
     };
     fetch("https://lambda-notes-build.herokuapp.com/api/notes", options)
       .then(res => console.log(res.status))
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
     window.history.back();
   };
-  // onMount(() => console.log(window.history));
 </script>
 
 <style>

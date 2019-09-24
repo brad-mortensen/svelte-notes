@@ -19,13 +19,13 @@
       { method: "DELETE" }
     )
       .then(res => console.log(res.status))
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
     window.history.back();
   };
   onMount(async () => {
     await fetchNote()
       .then(data => (currentNote = data))
-      .catch(err => console.log(`Error getting single note: ${err}`));
+      .catch(err => console.error(`Error getting single note: ${err}`));
   });
 </script>
 

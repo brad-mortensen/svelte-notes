@@ -8,7 +8,7 @@
       { method: "DELETE" }
     )
       .then(res => console.log(res.status))
-      .catch(err => console.log(`error deleting note: ${err}`));
+      .catch(err => console.error(`error deleting note: ${err}`));
   };
 </script>
 

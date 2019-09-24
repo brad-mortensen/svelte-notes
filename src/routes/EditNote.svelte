@@ -22,7 +22,7 @@
       options
     )
       .then(res => console.log(res))
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
     window.history.back();
   };
   const fetchNote = async id => {
@@ -34,7 +34,7 @@
   onMount(async () => {
     await fetchNote()
       .then(data => (currentNote = data))
-      .catch(err => console.log(`Error getting single note: ${err}`));
+      .catch(err => console.error(`Error getting single note: ${err}`));
   });
 </script>
 
