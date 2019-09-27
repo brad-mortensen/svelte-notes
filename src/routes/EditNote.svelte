@@ -92,6 +92,6 @@
       class="textBody"
       placeholder="Note Content"
       bind:value={currentNote.textBody} />
-    <button class="save" on:Click={handleEdit}>Save</button>
+    <button class="save btn" on:Click={handleEdit}>Save</button>
   </form>
 </div>
