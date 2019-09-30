@@ -50,7 +50,7 @@
     height: 200px;
     resize: none;
   }
-  .add-note-container .new-note-form button {
+  .add-note-container .new-note-form .save {
     width: 25%;
     height: 40px;
     background-color: white;
@@ -76,6 +76,6 @@
       type="text"
       bind:value={textBody}
       placeholder="Enter Note Content..." />
-    <button type="submit" on:click={handleSubmit}>SAVE</button>
+    <p class="save"type="submit" on:click={handleSubmit}>SAVE</p>
   </form>
 </div>
