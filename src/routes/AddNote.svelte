@@ -4,7 +4,6 @@
   let title = "";
   let textBody = "";
   const handleSubmit = e => {
-    e.preventDefault();
     const data = { title, textBody };
     const options = {
       method: "POST",
