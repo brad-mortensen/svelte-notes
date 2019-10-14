@@ -36,7 +36,7 @@
       <p>View Notes</p>
     </Link>
     <Link to="/add-note">
-      <p>New Note</p>
+      <p>Add a Note</p>
     </Link>
   </div>
 </div>
