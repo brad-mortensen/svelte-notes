@@ -1,9 +1,10 @@
 <script>
   import { onMount } from "svelte";
-  import  { api } from "../extras/extras";
+  import { fly, fade } from "svelte/transition";
+
+  import { api } from "../extras/extras";
   let title = "";
   let textBody = "";
-  console.log(api);
   const handleSubmit = e => {
     const data = { title, textBody };
     const options = {
@@ -63,7 +64,7 @@
   }
 </style>
 
-<div class="add-note-container">
+<div class="add-note-container" in:fly={{ y: 200, duration: 500 }}>
   <h2>Add a note</h2>
   <form class="new-note-form">
     <input
@@ -76,6 +77,6 @@
       type="text"
       bind:value={textBody}
       placeholder="Enter Note Content..." />
-    <p class="save"type="submit" on:click={handleSubmit}>SAVE</p>
+    <p class="save" type="submit" on:click={handleSubmit}>SAVE</p>
   </form>
 </div>

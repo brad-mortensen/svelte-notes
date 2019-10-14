@@ -3,11 +3,11 @@
   import {api} from "../extras/extras";
   import Note from "./Note.svelte";
   import SingleNote from "./SingleNote.svelte";
-  $: pageRange = [];
-  $: currentPage = 1;
+  let pageRange = [];
+  let currentPage = 1;
   let notesPerPage = 6;
   let newNotes;
-  $: notes = [];
+  let notes = [];
   const fetchNotes = async () => {
     const response = await fetch(api);
     const data = await response.json();
