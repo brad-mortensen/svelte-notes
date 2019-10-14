@@ -1,23 +1,19 @@
 <script>
   import { onMount } from "svelte";
   import { Link } from "svelte-routing";
+  import {api} from "../extras/extras";
   const noteId = `${window.location.pathname.slice(
     6,
     window.location.pathname.length
   )}`;
   let currentNote = [];
   const fetchNote = async id => {
-    const response = await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${noteId}`
-    );
+    const response = await fetch(`${api}${noteId}`);
     return await response.json();
   };
   let deleting = false;
   const handleDelete = async () => {
-    await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${noteId}`,
-      { method: "DELETE" }
-    )
+    await fetch(`${api}${noteId}`, { method: "DELETE" })
       .then(res => console.log(res.status))
       .catch(err => console.error(err));
     window.history.back();

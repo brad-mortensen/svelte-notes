@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Link } from "svelte-routing";
+  import {api} from "../extras/extras";
   const noteId = `${window.location.pathname.slice(
     6,
     window.location.pathname.length
@@ -17,17 +18,14 @@
         "Content-Type": "application/json"
       }
     };
-    await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
-      options
-    )
+    await fetch(`${api}${e.target.id}`, option)
       .then(res => console.log(res))
       .catch(err => console.error(err));
     window.history.back();
   };
   const fetchNote = async id => {
     const response = await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${noteId}`
+      `${api}${noteId}`
     );
     return await response.json();
   };

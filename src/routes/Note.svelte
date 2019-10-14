@@ -1,12 +1,9 @@
 <script>
   import { Link } from "svelte-routing";
-
+  import {api} from "../extras/extras"
   export let note;
   const handleDelete = async e => {
-    await fetch(
-      `https://lambda-notes-build.herokuapp.com/api/notes/${e.target.id}`,
-      { method: "DELETE" }
-    )
+    await fetch(`${api}${e.target.id}`, { method: "DELETE" })
       .then(res => console.log(res.status))
       .catch(err => console.error(`error deleting note: ${err}`));
   };

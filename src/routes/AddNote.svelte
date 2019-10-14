@@ -1,8 +1,9 @@
 <script>
   import { onMount } from "svelte";
-
+  import  { api } from "../extras/extras";
   let title = "";
   let textBody = "";
+  console.log(api);
   const handleSubmit = e => {
     const data = { title, textBody };
     const options = {
@@ -12,7 +13,7 @@
         "Content-Type": "application/json"
       }
     };
-    fetch("https://lambda-notes-build.herokuapp.com/api/notes", options)
+    fetch(api, options)
       .then(res => console.log(res.status))
       .catch(err => console.error(err));
     window.history.back();

@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import {api} from "../extras/extras";
   import Note from "./Note.svelte";
   import SingleNote from "./SingleNote.svelte";
   $: pageRange = [];
@@ -8,9 +9,7 @@
   let newNotes;
   $: notes = [];
   const fetchNotes = async () => {
-    const response = await fetch(
-      "https://lambda-notes-build.herokuapp.com/api/notes"
-    );
+    const response = await fetch(api);
     const data = await response.json();
     return data;
   };
