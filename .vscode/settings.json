@@ -19,8 +19,8 @@
     "breadcrumb.activeSelectionForeground": "#FF4081",
     "menu.selectionForeground": "#FF4081",
     "menubar.selectionForeground": "#FF4081",
-    "activityBar.background": "#231966",
-    "titleBar.activeBackground": "#31238E",
-    "titleBar.activeForeground": "#FCFCFE"
+    "activityBar.background": "#5c1966",
+    "titleBar.activeBackground": "#3aab0a",
+    "titleBar.activeForeground": "#2020bb"
   }
 }
