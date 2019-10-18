@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Link } from "svelte-routing";
-  import {api} from "../extras/extras";
+  import { api } from "../extras/extras";
   const noteId = `${window.location.pathname.slice(
     6,
     window.location.pathname.length
@@ -24,9 +24,7 @@
     window.history.back();
   };
   const fetchNote = async id => {
-    const response = await fetch(
-      `${api}${noteId}`
-    );
+    const response = await fetch(`${api}${noteId}`);
     return await response.json();
   };
   onMount(async () => {
