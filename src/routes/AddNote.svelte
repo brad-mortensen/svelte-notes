@@ -64,7 +64,7 @@
   }
 </style>
 
-<div class="add-note-container" in:fly={{ y: 200, duration: 500 }}>
+<div class="add-note-container" in:fly={{ y: 300, duration: 400 }}>
   <h2>Add a note</h2>
   <form class="new-note-form">
     <input
