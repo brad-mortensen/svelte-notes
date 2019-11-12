@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Link } from "svelte-routing";
-  import {api} from "../extras/extras";
+  import { api } from "../extras/extras";
   const noteId = `${window.location.pathname.slice(
     6,
     window.location.pathname.length

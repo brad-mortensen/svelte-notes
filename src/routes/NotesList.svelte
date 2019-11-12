@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import {api} from "../extras/extras";
+  import { api } from "../extras/extras";
   import Note from "./Note.svelte";
   import SingleNote from "./SingleNote.svelte";
   let pageRange = [];
