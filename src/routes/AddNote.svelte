@@ -27,7 +27,7 @@
     width: 60%;
     display: flex;
     flex-flow: column;
-    margin-top: 85px;
+    margin-top: 80px;
   }
   .add-note-container h2 {
     width: 100%;
@@ -38,7 +38,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .add-note-container .new-note-form .title {
     width: 60%;
@@ -53,7 +53,7 @@
   }
   .add-note-container .new-note-form .save {
     width: 25%;
-    height: 40px;
+    height: 44px;
     background-color: white;
     font-size: 1.4rem;
     display: flex;
