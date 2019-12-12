@@ -34,6 +34,13 @@
     width: 40%;
     padding: 10px;
   }
+  .single-note .back {
+    font-size: 12px;
+    width: 100%;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+  }
   .single-note h1 {
     font-size: 2rem;
   }
@@ -95,6 +102,9 @@
 
 {#if currentNote !== []}
   <div class="single-note">
+    <Link to="/">
+      <p class="back">Back</p>
+    </Link>
     <h1 class="title">{currentNote.title}</h1>
     <p class="textBody">{currentNote.textBody}</p>
     <div class="buttons">
