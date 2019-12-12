@@ -21,13 +21,13 @@
     await fetch(`${api}${e.target.id}`, option)
       .then(res => {
         console.log(res.status);
-        navigate("/", { replace: true })
+        navigate("/", { replace: true });
       })
       .catch(err => console.error(err));
   };
   const fetchNote = async id => {
     const response = await fetch(`${api}${noteId}`);
-    return await response.json();
+    return response.json();
   };
   onMount(async () => {
     await fetchNote()
