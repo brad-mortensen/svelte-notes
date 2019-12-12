@@ -18,12 +18,14 @@
         "Content-Type": "application/json"
       }
     };
+    console.log('editing?')
     await fetch(`${api}${e.target.id}`, options)
       .then(res => {
         console.log(res.status);
         navigate("/", { replace: true });
       })
       .catch(err => console.error(err));
+      console.log('did that edit?')
   };
   const fetchNote = async id => {
     const response = await fetch(`${api}${noteId}`);
@@ -31,7 +33,7 @@
   };
   onMount(async () => {
     await fetchNote()
-      .then(data => (currentNote = data))
+      .then(data => currentNote = data)
       .catch(err => console.error(`Error getting single note: ${err}`));
   });
 </script>
@@ -90,6 +92,6 @@
       class="textBody"
       placeholder="Note Content"
       bind:value={currentNote.textBody} />
-    <button class="save btn" on:Click={handleEdit}>Save</button>
+    <button class="save btn" on:click={handleEdit}>Save</button>
   </form>
 </div>
