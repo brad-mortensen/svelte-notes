@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Link } from "svelte-routing";
+  import { Link, navigate } from "svelte-routing";
   import { api } from "../extras/extras";
   const noteId = `${window.location.pathname.slice(
     6,
@@ -14,9 +14,11 @@
   let deleting = false;
   const handleDelete = async () => {
     await fetch(`${api}${noteId}`, { method: "DELETE" })
-      .then(res => console.log(res.status))
+      .then(res => {
+        console.log(res.status);
+        navigate("/", { replace: true });
+      })
       .catch(err => console.error(err));
-    window.history.back();
   };
   onMount(async () => {
     await fetchNote()
