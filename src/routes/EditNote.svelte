@@ -18,7 +18,7 @@
         "Content-Type": "application/json"
       }
     };
-    await fetch(`${api}${e.target.id}`, option)
+    await fetch(`${api}${e.target.id}`, options)
       .then(res => {
         console.log(res.status);
         navigate("/", { replace: true });
