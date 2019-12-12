@@ -1,8 +1,9 @@
 <script>
   import { onMount } from "svelte";
+  import { navigate } from "svelte-routing";
   import { fly, fade } from "svelte/transition";
-
   import { api } from "../extras/extras";
+
   let title = "";
   let textBody = "";
   const handleSubmit = e => {
@@ -15,9 +16,11 @@
       }
     };
     fetch(api, options)
-      .then(res => console.log(res.status))
+      .then(res => {
+        console.log(res.status);
+        navigate("/", { replace: true });
+      })
       .catch(err => console.error(err));
-    window.history.back();
   };
 </script>
 
