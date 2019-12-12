@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { Link } from "svelte-routing";
   import { api } from "../extras/extras";
   import Note from "./Note.svelte";
   import SingleNote from "./SingleNote.svelte";
@@ -76,5 +77,8 @@
     <Note {note} />
   {:else}
     <p>*No notes yet*</p>
+    <Link to="/add-note">
+      <p>Add a Note</p>
+    </Link>
   {/each}
 </div>
