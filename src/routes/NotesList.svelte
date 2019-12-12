@@ -18,7 +18,10 @@
   };
   onMount(async () => {
     await fetchNotes()
-      .then(data => (notes = [...data]))
+      .then(data => {
+        notes = [...data];
+        notesPerPage = notes.length;
+      })
       .catch(err => console.error(`Error getting Notes: ${err}`));
     for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
       pageRange.push(i);
