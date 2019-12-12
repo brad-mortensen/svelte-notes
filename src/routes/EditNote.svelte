@@ -10,7 +10,11 @@
 
   const handleEdit = async e => {
     e.preventDefault();
-    const data = { title: currentNote.title, textBody: currentNote.textBody };
+    const { id } = currentNote;
+    const data = { 
+      title: currentNote.title, 
+      textBody: currentNote.textBody 
+    };
     const options = {
       method: "PUT",
       body: JSON.stringify(data),
@@ -18,14 +22,12 @@
         "Content-Type": "application/json"
       }
     };
-    console.log('editing?')
-    await fetch(`${api}${e.target.id}`, options)
+    await fetch(`${api}${id}`, options)
       .then(res => {
         console.log(res.status);
-        navigate("/", { replace: true });
+        navigate(`/note/${id}`, { replace: true });
       })
       .catch(err => console.error(err));
-      console.log('did that edit?')
   };
   const fetchNote = async id => {
     const response = await fetch(`${api}${noteId}`);
