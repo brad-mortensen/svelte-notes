@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Link } from "svelte-routing";
+  import { Link,  navigate} from "svelte-routing";
   import { api } from "../extras/extras";
   const noteId = `${window.location.pathname.slice(
     6,
@@ -19,9 +19,11 @@
       }
     };
     await fetch(`${api}${e.target.id}`, option)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res.status);
+        navigate("/", { replace: true })
+      })
       .catch(err => console.error(err));
-    window.history.back();
   };
   const fetchNote = async id => {
     const response = await fetch(`${api}${noteId}`);
