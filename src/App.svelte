@@ -51,13 +51,13 @@
   <div class="app">
     <Nav />
     <div class="container">
-      <Route path="/" component={NotesList}/>
+      <Route path="/" component={NotesList} />
       <Route path="add-note" component={AddNote} />
       <Route path="note/:id" let:params>
-        <SingleNote id="{params.id}"/>
+        <SingleNote id={params.id} />
       </Route>
       <Route path="edit/:id" let:params>
-        <EditNote id="{params.id}" />
+        <EditNote id={params.id} />
       </Route>
     </div>
   </div>

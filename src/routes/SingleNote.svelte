@@ -4,7 +4,7 @@
   import { api } from "../extras/extras";
 
   export let id;
-  console.log(id)
+  console.log(id);
   let currentNote = [];
   const fetchNote = async () => {
     const response = await fetch(`${api}${id}`);

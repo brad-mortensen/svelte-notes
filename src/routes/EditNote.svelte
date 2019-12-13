@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Link,  navigate} from "svelte-routing";
+  import { Link, navigate } from "svelte-routing";
   import { api } from "../extras/extras";
 
   export let id;
@@ -10,9 +10,9 @@
   const handleEdit = async e => {
     e.preventDefault();
     const { id } = currentNote;
-    const data = { 
-      title: currentNote.title, 
-      textBody: currentNote.textBody 
+    const data = {
+      title: currentNote.title,
+      textBody: currentNote.textBody
     };
     const options = {
       method: "PUT",
@@ -35,7 +35,7 @@
   };
   onMount(async () => {
     await fetchNote()
-      .then(data => currentNote = data)
+      .then(data => (currentNote = data))
       .catch(err => console.error(`Error getting single note: ${err}`));
   });
 </script>
