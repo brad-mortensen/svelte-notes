@@ -48,6 +48,12 @@
     flex-flow: column;
     margin-top: 90px;
   }
+  .edit-container .back {
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+    font-size: 12px;
+  }
   .edit-container h2 {
     width: 100%;
     text-align: center;
@@ -84,6 +90,9 @@
 </style>
 
 <div class="edit-container">
+  <Link to={`/note/${currentNote.id}`}>
+    <p class="back">Back</p>
+  </Link>
   <h2>Edit Note:</h2>
   <form class="edit-form">
     <input

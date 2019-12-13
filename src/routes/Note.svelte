@@ -19,6 +19,11 @@
     margin-bottom: 20px;
     border: 3px solid lightsalmon;
     overflow: scroll;
+    color: black;
+    text-decoration: none;
+  }
+  .note:hover {
+    text-decoration: none;
   }
   .note h2 {
     font-size: 2rem;
