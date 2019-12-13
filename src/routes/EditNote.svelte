@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { Link,  navigate} from "svelte-routing";
   import { api } from "../extras/extras";
+
   export let id;
 
   let currentNote = [];
@@ -27,6 +28,7 @@
       })
       .catch(err => console.error(err));
   };
+
   const fetchNote = async () => {
     const response = await fetch(`${api}${id}`);
     return response.json();

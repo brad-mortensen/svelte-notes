@@ -2,7 +2,9 @@
   import { fly, fade } from 'svelte/transition';
   import { Link } from "svelte-routing";
   import {api} from "../extras/extras";
+
   export let note;
+
   const handleDelete = async e => {
     await fetch(`${api}${e.target.id}`, { method: "DELETE" })
       .then(res => console.log(res.status))
@@ -33,7 +35,7 @@
   }
 </style>
 
-<Link to="note/{note.id}">
+<Link to="note/{note.id}" >
   <div class="note" in:fly="{{ y: 200, duration: 500 }}">
     <h2>{note.title}</h2>
     <p>{note.textBody}</p>

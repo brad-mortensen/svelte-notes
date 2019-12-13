@@ -57,7 +57,7 @@
         <SingleNote id="{params.id}"/>
       </Route>
       <Route path="edit/:id" let:params>
-        <EditNote id="{params.id}"/>
+        <EditNote id="{params.id}" />
       </Route>
     </div>
   </div>
