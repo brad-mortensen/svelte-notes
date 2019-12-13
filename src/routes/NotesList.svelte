@@ -4,19 +4,39 @@
   import { api } from "../extras/extras";
   import Note from "./Note.svelte";
   import SingleNote from "./SingleNote.svelte";
+
   let pageRange = [];
   let currentPage = 1;
   let notesPerPage = 6;
   let newNotes;
   let notes = [];
+
   const fetchNotes = async () => {
     const response = await fetch(api);
     const data = await response.json();
     return data;
   };
+
   const setPageNum = e => {
     currentPage = e.target.innerText;
   };
+
+  $: sortedNotesAZ = [...notes].sort((a, b) =>
+    a.title > b.title ? 1 : b.title > a.title ? -1 : 0
+  );
+
+  $: sortedNotesZA = [...notes].sort((b, a) =>
+    a.title > b.title ? 1 : b.title > a.title ? -1 : 0
+  );
+
+  const handleSort = e => {
+    const inner = e.target.innerText;
+    inner === "Sort A-Z" ? (notes = sortedNotesAZ) : (notes = sortedNotesZA);
+    sorted = !sorted;
+  };
+
+  let sorted = false;
+
   onMount(async () => {
     await fetchNotes()
       .then(data => {
@@ -63,7 +83,9 @@
 
 <div class="notes-container">
   <div class="page-numbers">
-    <p>Sort</p>
+    <button on:click|preventDefault={handleSort}>
+      {sorted ? 'Sort Z-A' : 'Sort A-Z'}
+    </button>
     {#each pageRange as num (currentPage)}
       {#if num === currentPage}
         <span class="current-page">{num}</span>
