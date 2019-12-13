@@ -3,18 +3,16 @@
   import { Link, navigate } from "svelte-routing";
   import { api } from "../extras/extras";
 
-  const noteId = `${window.location.pathname.slice(
-    6,
-    window.location.pathname.length
-  )}`;
+  export let id;
+  console.log(id)
   let currentNote = [];
-  const fetchNote = async id => {
-    const response = await fetch(`${api}${noteId}`);
+  const fetchNote = async () => {
+    const response = await fetch(`${api}${id}`);
     return await response.json();
   };
   let deleting = false;
   const handleDelete = async () => {
-    await fetch(`${api}${noteId}`, { method: "DELETE" })
+    await fetch(`${api}${id}`, { method: "DELETE" })
       .then(res => {
         console.log(res.status);
         navigate("/", { replace: true });
