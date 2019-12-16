@@ -30,8 +30,10 @@
   );
 
   const handleSort = e => {
-    const inner = e.target.innerText;
-    inner === "Sort A-Z" ? (notes = sortedNotesAZ) : (notes = sortedNotesZA);
+    const buttonName = e.target.innerText;
+    buttonName === "Sort A-Z"
+      ? (notes = sortedNotesAZ)
+      : (notes = sortedNotesZA);
     sorted = !sorted;
   };
 
