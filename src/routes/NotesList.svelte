@@ -6,25 +6,18 @@
   import SingleNote from "./SingleNote.svelte";
 
   let currentPage = 1;
+  let pageRange = [];
   let notesPerPage = 6;
   let newNotes;
   let notes = [];
 
-  const fetchNotes = async () => {
-    const response = await fetch(api);
-    const data = await response.json();
-    return data;
+  const fetchNotes = () => {
+    return fetch(api).then(res => res.json());
   };
 
   const setPageNum = e => {
     currentPage = e.target.innerText;
   };
-
-  let pageRange = [];
-
-  $: for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
-    pageRange.push(i);
-  }
 
   $: sortedNotesAZ = [...notes].sort((a, b) =>
     a.title > b.title ? 1 : b.title > a.title ? -1 : 0
@@ -34,6 +27,15 @@
     a.title > b.title ? 1 : b.title > a.title ? -1 : 0
   );
 
+  $: newNotes = notes.slice(
+    currentPage * notesPerPage - notesPerPage,
+    currentPage * notesPerPage
+  );
+
+  $: pages = Math.ceil(notes.length / notesPerPage);
+  $: for (let i = 1; i<=pages; i++) {
+    pageRange.push(i)
+  }
   const handleSort = e => {
     const buttonName = e.target.innerText;
     buttonName === "Sort A-Z"
@@ -46,18 +48,8 @@
 
   onMount(async () => {
     await fetchNotes()
-      .then(data => {
-        notes = [...data];
-      })
+      .then(data => (notes = [...data]))
       .catch(err => console.error(`Error getting Notes: ${err}`));
-    // for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
-    //   pageRange.push(i);
-    // }
-    newNotes = notes.slice(
-      currentPage * notesPerPage - notesPerPage,
-      currentPage * notesPerPage
-    );
-    notes = newNotes;
   });
 </script>
 
@@ -101,7 +93,7 @@
     {/each}
   </div>
 
-  {#each notes as note (notes)}
+  {#each newNotes as note (notes)}
     <Note {...note} />
   {:else}
     <p>*No notes yet*</p>
