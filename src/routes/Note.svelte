@@ -3,7 +3,9 @@
   import { Link } from "svelte-routing";
   import {api} from "../extras/extras";
 
-  export let note;
+  export let id;
+  export let title;
+  export let textBody;
 
   const handleDelete = async e => {
     await fetch(`${api}${e.target.id}`, { method: "DELETE" })
@@ -35,9 +37,9 @@
   }
 </style>
 
-<Link to="note/{note.id}" >
+<Link to="note/{id}" >
   <div class="note" in:fly="{{ y: 200, duration: 500 }}">
-    <h2>{note.title}</h2>
-    <p>{note.textBody}</p>
+    <h2>{title}</h2>
+    <p>{textBody}</p>
   </div>
 </Link>

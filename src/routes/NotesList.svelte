@@ -5,7 +5,6 @@
   import Note from "./Note.svelte";
   import SingleNote from "./SingleNote.svelte";
 
-  let pageRange = [];
   let currentPage = 1;
   let notesPerPage = 6;
   let newNotes;
@@ -20,6 +19,12 @@
   const setPageNum = e => {
     currentPage = e.target.innerText;
   };
+
+  let pageRange = [];
+
+  $: for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
+    pageRange.push(i);
+  }
 
   $: sortedNotesAZ = [...notes].sort((a, b) =>
     a.title > b.title ? 1 : b.title > a.title ? -1 : 0
@@ -43,12 +48,11 @@
     await fetchNotes()
       .then(data => {
         notes = [...data];
-        notesPerPage = notes.length;
       })
       .catch(err => console.error(`Error getting Notes: ${err}`));
-    for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
-      pageRange.push(i);
-    }
+    // for (let i = 1; i <= Math.ceil(notes.length / notesPerPage); i++) {
+    //   pageRange.push(i);
+    // }
     newNotes = notes.slice(
       currentPage * notesPerPage - notesPerPage,
       currentPage * notesPerPage
@@ -98,7 +102,7 @@
   </div>
 
   {#each notes as note (notes)}
-    <Note {note} />
+    <Note {...note} />
   {:else}
     <p>*No notes yet*</p>
     <Link to="/add-note">
