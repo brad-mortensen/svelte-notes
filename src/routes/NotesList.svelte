@@ -33,8 +33,9 @@
   );
 
   $: pages = Math.ceil(notes.length / notesPerPage);
-  $: for (let i = 1; i<=pages; i++) {
-    pageRange.push(i)
+
+  $: for (let i = 1; i <= pages; i++) {
+    pageRange.push(i);
   }
   const handleSort = e => {
     const buttonName = e.target.innerText;
