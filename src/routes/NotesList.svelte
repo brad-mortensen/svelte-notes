@@ -49,7 +49,10 @@
 
   onMount(async () => {
     await fetchNotes()
-      .then(data => (notes = [...data]))
+      .then(data => {
+        notes = [...data];
+        notesPerPage = notes.length;
+      })
       .catch(err => console.error(`Error getting Notes: ${err}`));
   });
 </script>
