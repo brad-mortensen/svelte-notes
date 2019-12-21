@@ -15,7 +15,7 @@
     return fetch(api).then(res => res.json());
   };
 
-  const setPageNum = e => {
+  $: setPageNum = e => {
     currentPage = e.target.innerText;
   };
 
