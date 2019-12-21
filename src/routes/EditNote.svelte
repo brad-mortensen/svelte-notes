@@ -30,8 +30,7 @@
   };
 
   const fetchNote = async () => {
-    const response = await fetch(`${api}${id}`);
-    return response.json();
+    return fetch(`${api}${id}`).then(res => res.json());
   };
   onMount(async () => {
     await fetchNote()
