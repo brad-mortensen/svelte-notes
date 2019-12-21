@@ -9,7 +9,6 @@
 
   const handleEdit = async e => {
     e.preventDefault();
-    const { id } = currentNote;
     const data = {
       title: currentNote.title,
       textBody: currentNote.textBody
