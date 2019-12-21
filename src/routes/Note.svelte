@@ -1,14 +1,14 @@
 <script>
-  import { fly, fade } from 'svelte/transition';
+  import { fly, fade } from "svelte/transition";
   import { Link } from "svelte-routing";
-  import {api} from "../extras/extras";
+  import { api } from "../extras/extras";
 
   export let id;
   export let title;
   export let textBody;
 
-  const handleDelete = async e => {
-    await fetch(`${api}${e.target.id}`, { method: "DELETE" })
+  const handleDelete = async () => {
+    await fetch(`${api}${id}`, { method: "DELETE" })
       .then(res => console.log(res.status))
       .catch(err => console.error(`error deleting note: ${err}`));
   };
@@ -37,8 +37,8 @@
   }
 </style>
 
-<Link to="note/{id}" >
-  <div class="note" in:fly="{{ y: 200, duration: 500 }}">
+<Link to="note/{id}">
+  <div class="note" in:fly={{ y: 200, duration: 500 }}>
     <h2>{title}</h2>
     <p>{textBody}</p>
   </div>
