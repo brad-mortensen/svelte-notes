@@ -102,7 +102,7 @@
   }
 </style>
 
-{#if currentNote !== []}
+{#if currentNote}
   <div class="single-note">
     <Link to="/">
       <p class="back">Back</p>
