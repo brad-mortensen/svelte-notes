@@ -4,13 +4,15 @@
   import { api } from "../extras/extras";
 
   export let id;
-  console.log(id);
+
   let currentNote = [];
+
   const fetchNote = async () => {
-    const response = await fetch(`${api}${id}`);
-    return await response.json();
+    return fetch(`${api}${id}`).then(res => res.json());
   };
+
   let deleting = false;
+
   const handleDelete = async () => {
     await fetch(`${api}${id}`, { method: "DELETE" })
       .then(res => {
@@ -19,6 +21,7 @@
       })
       .catch(err => console.error(err));
   };
+
   onMount(async () => {
     await fetchNote()
       .then(data => (currentNote = data))
