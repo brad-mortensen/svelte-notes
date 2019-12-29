@@ -30,13 +30,13 @@
 </style>
 
 <div class="nav-bar">
-  <h1>Notes</h1>
+  <h1>Svelte Notes</h1>
   <div class="nav-buttons">
     <Link to="/">
       <p>View Notes</p>
     </Link>
     <Link to="/add-note">
-      <p>Add a Note</p>
+      <p>+ Note</p>
     </Link>
   </div>
 </div>
