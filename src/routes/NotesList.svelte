@@ -15,8 +15,8 @@
     return fetch(api).then(res => res.json());
   };
 
-  $: setPageNum = e => {
-    currentPage = e.target.innerText;
+  $: setPageNum = ({ target: { innerText } }) => {
+    currentPage = innerText;
   };
 
   $: sortedNotesAZ = [...notes].sort((a, b) =>
@@ -37,9 +37,8 @@
   $: for (let i = 1; i <= pages; i++) {
     pageRange.push(i);
   }
-  const handleSort = e => {
-    const buttonName = e.target.innerText;
-    buttonName === "Sort A-Z"
+  const handleSort = ({ target: { innerText } }) => {
+    innerText === "Sort A-Z"
       ? (notes = sortedNotesAZ)
       : (notes = sortedNotesZA);
     sorted = !sorted;

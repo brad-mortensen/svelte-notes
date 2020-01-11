@@ -7,8 +7,8 @@
 
   let currentNote = [];
 
-  const handleEdit = async e => {
-    e.preventDefault();
+  const handleEdit = async ({ preventDefault }) => {
+    preventDefault();
     const data = {
       title: currentNote.title,
       textBody: currentNote.textBody
