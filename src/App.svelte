@@ -6,7 +6,6 @@
   import SingleNote from "./routes/SingleNote.svelte";
   import EditNote from "./routes/EditNote.svelte";
 </script>
-
 <style>
   :global(html) {
     scroll-behavior: smooth;
